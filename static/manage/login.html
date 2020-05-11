@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8' />
+    <link rel='shortcut icon' type='image/x-icon' href='/static/favicon.ico' media='screen' />
+    <!--Import Google Icon Font-->
+    <link href="/css/icons.css" rel="stylesheet" type='text/css' />
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/static/css/materialize.css" media="screen,projection" />
+    <link href="/static/css/site.css" rel="stylesheet" type='text/css' />
+    <link href='/static/css/highlight.css' rel='stylesheet' type='text/css' />
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>登录</title>
+</head>
+
+<body>
+    <main>
+        <div style="padding: 30px;">
+            <div class="row">
+                <div class="col s6">
+                    <label for='username'>用户名</label>
+                    <input id='username' type='text' name='username' placeholder='' />
+                    <label for='password'>密码</label>
+                    <input id='password' type='password' name='password' placeholder='' />
+                </div>
+            </div>
+            <a href='javascript:void(0)' onclick='submit_login()'
+                class='weui-btn weui-btn_mini weui-btn_default'>登录</a>
+        </div>
+    </main>
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="/static/script/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/static/script/materialize.js"></script>
+    <script type="text/javascript" src="/static/script/action/login.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8' />
+    <link rel='shortcut icon' type='image/x-icon' href='/static/favicon.ico' media='screen' />
+    <!--Import Google Icon Font-->
+    <link href="/static/css/icons.css" rel="stylesheet" type='text/css' />
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/static/css/materialize.css" media="screen,projection" />
+    <link href="/static/css/site.css" rel="stylesheet" type='text/css' />
+    <link href='/static/css/highlight.css' rel='stylesheet' type='text/css' />
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lessweb简介 - lessweb</title>
+</head>
+
+<body>
+    <ul id="slide-out" class="sidenav sidenav-fixed">
+        <li>
+            <div class="user-view">
+                <a href="/">嘞是web</a>
+            </div>
+        </li>
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li><a class="subheader collapsible-header">基础</a></li>
+        <li class="active"><a class="waves-effect" href="#!">lessweb简介</a></li>
+        <li><a class="waves-effect" href="#!">处理请求</a></li>
+        <li><a class="waves-effect" href="#!">Path Variable</a></li>
+        <li><a class="waves-effect" href="#!">重定向</a></li>
+        <li><a class="waves-effect" href="#!">上传文件</a></li>
+
+        <li><a class="subheader collapsible-header">进阶</a></li>
+        <li><a class="waves-effect" href="#!">上下文对象</a></li>
+        <li><a class="waves-effect" href="#!">Static Files</a></li>
+        <li><a class="waves-effect" href="#!">获取POST请求的raw data</a></li>
+        <li><a class="waves-effect" href="#!">Cookie</a></li>
+        <li><a class="waves-effect" href="#!">拦截器</a></li>
+        <li><a class="waves-effect" href="#!">参数改名与传递</a></li>
+        <li><a class="waves-effect" href="#!">Service</a></li>
+        <li><a class="waves-effect" href="#!">后端模板</a></li>
+        <br /><br /><br /><br /><br />
+    </ul>
+    <main>
+        <nav>
+            <div class="nav-wrapper">
+                <ul class="left">
+                    <li><a href="#" data-target="slide-out"
+                            class="top-nav sidenav-trigger waves-effect waves-light circle hide-on-large-only"><i
+                                class="material-icons">menu</i></a></li>
+                    <li><a href="#" style="margin-left: 15px;">Lessweb文档</a></li>
+                </ul>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="javascript:void(0)">帮助</a></li>
+                    <li><a href="javascript:void(0)">登录</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div id='contentHtml' class='markdown-body'>
+            <h1 id="lessweb是什么">lessweb是什么？</h1>
+            <p>lessweb是一个极易上手的python web框架，编写之初受到<a href="http://webpy.org/">web.py</a>的启发，其目标是：</p>
+<ul class="browser-default">
+<li>支持最新的python版本和最新的python语法</li>
+<li>尽量降低学习难度</li>
+<li>尽量pythonic</li>
+</ul>
+<blockquote>
+<p>"Django lets you write web apps in Django. Flask lets you write web apps in Flask. Lessweb lets you write web apps in Python."</p>
+</blockquote>
+<h1 id="安装">安装</h1>
+<div class="codehilite"><pre><span></span>pip3 install lessweb
+</pre></div>
+
+
+<p>lessweb依赖python3.6引入的类型标注语法，所以只支持python3.6.0以上版本。</p>
+<h1 id="hello-world">Hello, world!</h1>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">lessweb</span> <span class="kn">import</span> <span class="n">Application</span>
+<span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s1">&#39;Hello, world!&#39;</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">()</span>
+<span class="n">app</span><span class="o">.</span><span class="n">add_get_mapping</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">hello</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+
+
+<p>运行之后，用浏览器访问<code>http://localhost:8080/</code>，就能看到显示"Hello, world!"的页面。</p>
+<p>如果想把端口设置为<code>80</code>，可以在<code>app.run()</code>里面设置<code>port=80</code>，也就是：</p>
+<div class="codehilite"><pre><span></span><span class="o">......</span>
+<span class="n">app</span><span class="o">.</span><span class="n">add_get_mapping</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">hello</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+</pre></div>
+
+
+<h1 id="谁在用lessweb">谁在用lessweb？</h1>
+            <ul class="browser-default">
+                <li><a href="//www.lessweb.cn">www.lessweb.cn</a>网站本身就是用lessweb开发的。</li>
+                <li><a href="https://third.parsec.com.cn/">秒差距三体平台</a>，是对公众开放的微服务平台，包括：<ul class="browser-default">
+                        <li>利用微信开放平台实现的微信常用功能托管系统，可帮助微信开发者提升开发效率。</li>
+                        <li>对阿里云短信进行包装后的短信系统，可提升短信功能开发效率。</li>
+                    </ul>
+                </li>
+                <li>第一本编程入门手册，它利用微信公众号回复功能并基于lessweb实现了一个查字典机器人。</li>
+                <li>曲度美商城，量身定制的枕头。</li>
+            </ul>
+        </div>
+    </main>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="/static/script/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/static/script/materialize.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+        });
+    </script>
+</body>
+
+</html>

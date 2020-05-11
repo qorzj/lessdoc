@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8' />
+    <link rel='shortcut icon' type='image/x-icon' href='/static/favicon.ico' media='screen' />
+    <!--Import Google Icon Font-->
+    <link href="/static/css/icons.css" rel="stylesheet" type='text/css' />
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="/static/css/materialize.css" media="screen,projection" />
+    <link href="/static/css/site.css" rel="stylesheet" type='text/css' />
+    <link href='/static/css/highlight.css' rel='stylesheet' type='text/css' />
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>文章管理</title>
+</head>
+
+<body>
+    <ul id="slide-out" class="sidenav sidenav-fixed">
+        <li>
+            <div class="user-view">
+                <a href="/">嘞是web</a>
+            </div>
+        </li>
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li><a class="subheader collapsible-header">管理功能</a></li>
+        <li><a class="waves-effect" href="/static/manage/major_list.html">专栏管理</a></li>
+        <li><a class="waves-effect" href="/static/manage/dir_list.html">目录管理</a></li>
+        <li class="active"><a class="waves-effect" href="/static/manage/article_list.html">文章管理</a></li>
+        <li><a class="waves-effect" href="/static/manage/manager.html">管理员</a></li>
+        <br /><br /><br /><br /><br />
+    </ul>
+    <main>
+        <div style="padding: 30px;">
+            <div class="row">
+                <a href='/static/manage/article_edit.html'
+                    class='weui-btn weui-btn_mini weui-btn_default'>新建文章</a>
+            </div>
+            <div id="article_list">
+                ...
+            </div>
+        </div>
+    </main>
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="/static/script/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/static/script/materialize.js"></script>
+    <script type="text/javascript" src="/static/script/action/article_list.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+            do_list();
+        });
+    </script>
+</body>
+
+</html>

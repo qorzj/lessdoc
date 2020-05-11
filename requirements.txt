@@ -1,0 +1,17 @@
+mypy
+sqlalchemy
+redis
+hiredis
+requests
+markdown
+bleach
+sqlalchemy-stubs
+alembic
+mdx_truly_sane_lists
+pymdown-extensions
+pygments
+leancloud
+aiohttp
+aiohttp_wsgi
+typing_inspect
+typing_extensions
