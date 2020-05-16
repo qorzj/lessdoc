@@ -1,6 +1,5 @@
 import leancloud  # type: ignore
 from lessweb import Application
-from lessweb.utils import makedir
 from lessweb.plugin.dbplugin import DbPlugin
 from api.processor import global_processor
 from api.config import Config
@@ -8,7 +7,6 @@ from api.config import Config
 
 leancloud.init(Config.leancloud_app_id, Config.leancloud_app_key)
 app = Application()
-makedir('data')
 app.add_plugin(DbPlugin('data/main.db'))
 app.add_interceptor('.*', method='*', dealer=global_processor)
 
