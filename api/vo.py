@@ -2,7 +2,16 @@ from lessweb.plugin.dbplugin import table
 
 
 # 文章
-@table(name='ViewArticle')
+@table(name='(SELECT TblArticle.*, '
+            ' TblDirectory.dirName, '
+            ' TblDirectory.position AS dirPosition, '
+            ' TblDirectory.majorId, '
+            ' TblMajor.majorName, '
+            ' TblMajor.gitUrl, '
+            ' TblMajor.position AS majorPosition '
+            ' FROM TblArticle '
+            ' LEFT JOIN TblDirectory ON TblDirectory.dirId=TblArticle.dirId '
+            ' LEFT JOIN TblMajor ON TblMajor.majorId=TblDirectory.majorId) V')
 class ArticleVo:
     articleId: int  # 文章ID
     articleKey: str  # URL唯一标识
@@ -23,7 +32,11 @@ class ArticleVo:
 
 
 # 目录
-@table(name='ViewDirectory')
+@table(name='(SELECT TblDirectory.*, '
+            ' TblMajor.majorName, '
+            ' TblMajor.position AS majorPosition '
+            ' FROM TblDirectory '
+            ' LEFT JOIN TblMajor ON TblMajor.majorId=TblDirectory.majorId) V')
 class DirectoryVo:
     dirId: int  # 目录ID
     majorId: int  # 专栏ID
